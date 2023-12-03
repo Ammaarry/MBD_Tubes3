@@ -5,7 +5,7 @@ from sqlalchemy import text
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://ammaarrazaan.yahya231119:PfCboAV5rl2L@ep-bold-salad-71563862.us-east-2.aws.neon.tech/web")
-with st.session_state.conn.session as session:
+with conn.session as session:
     query = text('DROP TABLE IF EXISTS "gaji";'
                  'CREATE TABLE "gaji" (id SERIAL PRIMARY KEY,'
                  'nama varchar(255) default NULL,'
