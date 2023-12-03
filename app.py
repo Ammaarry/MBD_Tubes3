@@ -27,7 +27,7 @@ if page == "View Data":
 
 if page == "Edit Data":
     if st.button('Tambah Data'):
-        with st.conn.session as session:
+        with conn.session as session:
             query = text('INSERT INTO gaji (nama,email,phone,alamat,company,masa_kerja,tanggal_lahir,gaji) VALUES'\
                          "('', '', '', '', '', 0, '', '');")
             session.execute(query)
