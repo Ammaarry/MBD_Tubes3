@@ -22,12 +22,12 @@ st.header('Data Gaji Pegawai')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
 
 if page == "View Data":
-    data = st.session_state.conn.query('SELECT * FROM gaji ORDER By id;', ttl="0").set_index('id')
+    data = st.conn.query('SELECT * FROM gaji ORDER By id;', ttl="0").set_index('id')
     st.dataframe(data)
 
 if page == "Edit Data":
     if st.button('Tambah Data'):
-        with st.session_state.conn.session as session:
+        with st.conn.session as session:
             query = text('INSERT INTO gaji (nama,email,phone,alamat,company,masa_kerja,tanggal_lahir,gaji) VALUES'
                          "('', '', '', '', '', 0, '', '');")
             session.execute(query)
