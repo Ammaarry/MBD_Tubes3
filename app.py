@@ -33,7 +33,7 @@ if page == "Edit Data":
             session.execute(query)
             session.commit()
 
-    data = st.session_state.conn.query('SELECT * FROM gaji ORDER By id;', ttl="0")
+    data = conn.query('SELECT * FROM gaji ORDER By id;', ttl="0")
     for _, result in data.iterrows():
         id = result['id']
         nama_lama = result["nama"]
