@@ -22,7 +22,7 @@ st.header('Data Gaji Pegawai')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
 
 if page == "View Data":
-    data = st.conn.session('SELECT * FROM gaji ORDER By id;', ttl="0").set_index('id')
+    data = st.conn.session('SELECT * FROM gaji ORDER BY id;', ttl="0").set_index('id')
     st.dataframe(data)
 
 if page == "Edit Data":
