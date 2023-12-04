@@ -57,7 +57,7 @@ if page == "Edit Data":
                 gaji_baru = st.text_input("Gaji", gaji_lama)
 
                 if st.form_submit_button('UPDATE'):
-                    with st.session_state.conn.session as session:
+                    with conn.session as session:
                         query = text('UPDATE gaji '
                                      'SET nama=:1, email=:2, phone=:3, alamat=:4, company=:5, masa_kerja=:6, tanggal_lahir=:7, gaji=:8 '
                                      'WHERE id=:9;')
